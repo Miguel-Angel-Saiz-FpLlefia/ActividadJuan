@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monopoly Barça - Regalo de Navidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <title>UNO - Mi Juguete de la Infancia</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
@@ -13,6 +17,8 @@
       }
 
       body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #0f3a15 0%, #8b0000 100%);
         font-family: "Comic Sans MS", cursive, sans-serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -20,6 +26,64 @@
         justify-content: center;
         align-items: center;
         padding: 20px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Snow effect */
+      .snowflakes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .snowflake {
+        color: #fff;
+        font-size: 1.5em;
+        font-family: Arial;
+        text-shadow: 0 0 1px #000;
+        position: absolute;
+        top: -10%;
+        animation-name: snowflakes-fall, snowflakes-shake;
+        animation-duration: 10s, 3s;
+        animation-timing-function: linear, ease-in-out;
+        animation-iteration-count: infinite, infinite;
+        animation-play-state: running, running;
+      }
+      @keyframes snowflakes-fall {
+        0% { top: -10%; }
+        100% { top: 100%; }
+      }
+      @keyframes snowflakes-shake {
+        0% { transform: translateX(0px); }
+        50% { transform: translateX(80px); }
+        100% { transform: translateX(0px); }
+      }
+      .snowflake:nth-of-type(0) { left: 1%; animation-delay: 0s, 0s; }
+      .snowflake:nth-of-type(1) { left: 10%; animation-delay: 1s, 1s; }
+      .snowflake:nth-of-type(2) { left: 20%; animation-delay: 6s, 0.5s; }
+      .snowflake:nth-of-type(3) { left: 30%; animation-delay: 4s, 2s; }
+      .snowflake:nth-of-type(4) { left: 40%; animation-delay: 2s, 2s; }
+      .snowflake:nth-of-type(5) { left: 50%; animation-delay: 8s, 3s; }
+      .snowflake:nth-of-type(6) { left: 60%; animation-delay: 6s, 2s; }
+      .snowflake:nth-of-type(7) { left: 70%; animation-delay: 2.5s, 1s; }
+      .snowflake:nth-of-type(8) { left: 80%; animation-delay: 1s, 0s; }
+      .snowflake:nth-of-type(9) { left: 90%; animation-delay: 3s, 1.5s; }
+
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.5);
+        max-width: 700px;
+        padding: 50px;
+        text-align: center;
+        animation: slideIn 0.8s ease-out;
+        z-index: 1;
+        position: relative;
+        border: 4px solid #d4af37;
       }
 
       .container {
@@ -239,6 +303,19 @@
       }
 
       h1 {
+        color: #c41e3a;
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        color: #0f3a15;
+        font-size: 1.3em;
+        margin-bottom: 30px;
+        font-weight: 600;
         color: #e91e63;
         font-size: 2.5em;
         margin-bottom: 10px;
@@ -254,6 +331,15 @@
 
       .image-container {
         margin: 30px 0;
+        animation: float 4s ease-in-out infinite;
+
+        & img {
+          width: 100%;
+          max-width: 450px;
+          height: auto;
+          border-radius: 20px;
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+          border: 3px solid #d4af37;
         animation: float 3s ease-in-out infinite;
 
         & img {
@@ -268,11 +354,31 @@
           transform: translateY(0px);
         }
         50% {
+          transform: translateY(-15px);
           transform: translateY(-10px);
         }
       }
 
       .description {
+        background: #fdfbf7;
+        border-left: 6px solid #c41e3a;
+        padding: 25px;
+        margin: 30px 0;
+        text-align: left;
+        border-radius: 12px;
+        line-height: 1.8;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+      }
+
+      .description h2 {
+        color: #0f3a15;
+        margin-bottom: 15px;
+        font-size: 1.6em;
+        font-weight: 700;
+      }
+
+      .description p {
+        color: #444;
         background: #f8f9fa;
         border-left: 5px solid #e91e63;
         padding: 20px;
@@ -294,6 +400,26 @@
       }
 
       .buy-section {
+        background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 40px;
+        box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+      }
+
+      .buy-section h3 {
+        color: #fff;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 2.5em;
+        color: #ffd700;
+        font-weight: 800;
+        margin: 15px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         padding: 25px;
         border-radius: 15px;
@@ -316,6 +442,29 @@
 
       .buy-button {
         display: inline-block;
+        background: #ffd700;
+        color: #8b0000;
+        padding: 18px 45px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 1.2em;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .buy-button:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+        background: #fff;
+      }
+
+      .hearts {
+        font-size: 2em;
+        margin: 25px 0;
+        letter-spacing: 10px;
         background: white;
         color: #f5576c;
         padding: 15px 40px;
@@ -339,6 +488,22 @@
     </style>
   </head>
   <body>
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+    </div>
+
+    <div class="container">
+      <h1>Monopoly Barça</h1>
+      <p class="subtitle">Un regalo inolvidable esta Navidad</p>
     <div class="container">
       <h1>Monopoly Barça</h1>
       <p class="subtitle">Risas Entre Familia</p>
@@ -346,6 +511,21 @@
       <div class="image-container">
         <img
           src="https://m.media-amazon.com/images/I/913IwXeyF9L._AC_SX679_.jpg"
+          alt="Monopoly Barça"
+          class="board-game-img" />
+      </div>
+
+      <div class="description">
+        <h2>¿Por qué es el regalo ideal para Navidad?</h2>
+        <p>
+          En Navidad, no hay nada mejor que reunir a toda la familia alrededor de un buen juego de mesa. Recomendamos este Monopoly del Barça porque garantiza horas de diversión y rivalidad sana. Imagina la Nochebuena jugando todos juntos, incluso aquellos que son del equipo rival (¡como mi padre del Madrid!). Es el regalo perfecto para desconectar de las pantallas y crear recuerdos inolvidables, llenos de risas fichando y vendiendo jugadores.
+        </p>
+      </div>
+
+      <div class="hearts">🎄 🎁 ⚽ 🎁 🎄</div>
+
+      <div class="buy-section">
+        <h3>¡Haz el regalo perfecto esta Navidad!</h3>
           alt="UNO"
           class="UNO-img" />
       </div>
@@ -375,4 +555,5 @@
       </div>
     </div>
   </body>
+</html>
 </html>
