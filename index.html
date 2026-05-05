@@ -61,8 +61,8 @@
         animation: float 3s ease-in-out infinite;
 
         & img {
-          width: 500px;
-          height: 350px;
+          width: 100%; max-width: 500px;
+          height: auto;
         }
       }
 
@@ -141,6 +141,35 @@
       .buy-button:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 2em;
+        }
+        .subtitle {
+          font-size: 1em;
+        }
+        .description {
+          padding: 15px;
+          margin: 20px 0;
+        }
+        .description h2 {
+          font-size: 1.3em;
+        }
+        .description p {
+          font-size: 1em;
+        }
+        .price {
+          font-size: 1.5em;
+        }
+        .buy-button {
+          padding: 12px 30px;
+          font-size: 1em;
+        }
       }
 
       .hearts {
